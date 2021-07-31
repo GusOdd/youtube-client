@@ -16,7 +16,6 @@ export class SearchResultItemComponent implements OnInit {
     const currentTimestamp = new Date();
     const videoTimestamp = new Date(this.item!.snippet.publishedAt);
     const difference = +currentTimestamp - +videoTimestamp;
-    console.log(difference, MS_IN_MONTH, MS_IN_WEEK, MS_IN_HALF_YEAR);
     if (difference < MS_IN_MONTH) this.borderColor = 'green';
     if (difference < MS_IN_WEEK) this.borderColor = 'blue';
     if (difference > MS_IN_HALF_YEAR) this.borderColor = 'red';

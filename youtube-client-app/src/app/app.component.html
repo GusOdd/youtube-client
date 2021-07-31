@@ -1,6 +1,10 @@
 <div class="wrapper">
   <app-header (click)="onClickHeaderHandler($event)"></app-header>
-  <app-filtering-section *ngIf="isFilteringSectionDisplay"></app-filtering-section>
+  <app-filtering-section
+    (click)="onClickFilteringSectionHandler($event)"
+    [itemsData]="itemsData"
+    *ngIf="isFilteringSectionDisplay"
+  ></app-filtering-section>
   <app-search-results [itemsData]="itemsData" *ngIf="isSearchResultsDisplay; else noSearchResults"></app-search-results>
 </div>
 
