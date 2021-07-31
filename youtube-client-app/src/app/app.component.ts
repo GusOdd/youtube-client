@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ISearchResults } from './search-results/search-results';
 
 @Component({
   selector: 'app-root',
@@ -11,6 +12,17 @@ export class AppComponent {
   isFilteringSectionDisplay = false;
 
   isSearchResultsDisplay = false;
+
+  itemsData?: ISearchResults;
+
+  constructor() {
+    const getDataFromFile = async () => {
+      const res = await fetch('../../assets/data.json');
+      this.itemsData = await res.json();
+    };
+
+    getDataFromFile();
+  }
 
   onClickHeaderHandler(event: Event) {
     const eventTarget = event.target as HTMLElement;

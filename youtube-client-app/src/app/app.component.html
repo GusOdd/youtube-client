@@ -1,5 +1,9 @@
 <div class="wrapper">
   <app-header (click)="onClickHeaderHandler($event)"></app-header>
   <app-filtering-section *ngIf="isFilteringSectionDisplay"></app-filtering-section>
-  <app-search-results *ngIf="isSearchResultsDisplay"></app-search-results>
+  <app-search-results [itemsData]="itemsData" *ngIf="isSearchResultsDisplay; else noSearchResults"></app-search-results>
 </div>
+
+<ng-template #noSearchResults>
+  <p>There are no search results.</p>
+</ng-template>
