@@ -28,6 +28,7 @@ import { ItemDislikesCountComponent } from './search-results/search-result-item/
 import { ItemCommentsCountComponent } from './search-results/search-result-item/item-comments-count/item-comments-count.component';
 import { ItemVideoTitleComponent } from './search-results/search-result-item/item-video-title/item-video-title.component';
 import { ItemMoreButtonComponent } from './search-results/search-result-item/item-more-button/item-more-button.component';
+import { FilterByWordPipe } from './filter-by-word.pipe';
 
 @NgModule({
   declarations: [
@@ -49,6 +50,7 @@ import { ItemMoreButtonComponent } from './search-results/search-result-item/ite
     ItemCommentsCountComponent,
     ItemVideoTitleComponent,
     ItemMoreButtonComponent,
+    FilterByWordPipe,
   ],
   imports: [
     BrowserModule,

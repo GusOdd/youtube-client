@@ -8,4 +8,6 @@ import { ISearchResults } from './search-results';
 })
 export class SearchResultsComponent {
   @Input() itemsData?: ISearchResults;
+
+  @Input() inputData?: string;
 }

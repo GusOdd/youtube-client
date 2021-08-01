@@ -2,10 +2,14 @@
   <app-header (click)="onClickHeaderHandler($event)"></app-header>
   <app-filtering-section
     (click)="onClickFilteringSectionHandler($event)"
-    [itemsData]="itemsData"
+    (input)="onInputFilteringSectionHandler($event)"
     *ngIf="isFilteringSectionDisplay"
   ></app-filtering-section>
-  <app-search-results [itemsData]="itemsData" *ngIf="isSearchResultsDisplay; else noSearchResults"></app-search-results>
+  <app-search-results
+    [itemsData]="itemsData"
+    [inputData]="inputData"
+    *ngIf="isSearchResultsDisplay; else noSearchResults"
+  ></app-search-results>
 </div>
 
 <ng-template #noSearchResults>

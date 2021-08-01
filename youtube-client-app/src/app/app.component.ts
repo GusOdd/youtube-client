@@ -17,6 +17,8 @@ export class AppComponent {
 
   itemsData?: ISearchResults;
 
+  inputData?: string;
+
   constructor() {
     const getDataFromFile = async () => {
       const res = await fetch('../../assets/data.json');
@@ -63,6 +65,14 @@ export class AppComponent {
         this.itemsData!.items.sort((a, b) => +b.statistics.viewCount - +a.statistics.viewCount);
         this.isSortingAscending = true;
       }
+    }
+  }
+
+  onInputFilteringSectionHandler(event: Event) {
+    const eventTarget = event.target as HTMLInputElement;
+
+    if (eventTarget.classList.contains('input-by-word')) {
+      this.inputData = eventTarget.value.toLowerCase();
     }
   }
 }
