@@ -1,0 +1,17 @@
+<mat-card class="search-result-item" [ngClass]="{
+  green: borderColor === 'green',
+  blue: borderColor === 'blue',
+  red: borderColor === 'red'
+}">
+  <app-item-video-thumbnail [thumbnailUrl]="item!.snippet.thumbnails.maxres.url"></app-item-video-thumbnail>
+  <div class="statistics">
+    <app-item-views-count [count]="item!.statistics.viewCount"></app-item-views-count>
+    <app-item-likes-count [count]="item!.statistics.likeCount"></app-item-likes-count>
+    <app-item-dislikes-count [count]="item!.statistics.dislikeCount"></app-item-dislikes-count>
+    <app-item-comments-count [count]="item!.statistics.commentCount"></app-item-comments-count>
+  </div>
+  <app-item-video-title [title]="item!.snippet.title"></app-item-video-title>
+  <mat-card-actions>
+    <app-item-more-button></app-item-more-button>
+  </mat-card-actions>
+</mat-card>
