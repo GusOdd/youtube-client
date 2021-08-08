@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { ISearchResultItem } from './search-results/search-result-item/search-result-item';
+import { ISearchResultItem } from '../models/search-result-item';
 
 @Pipe({
   name: 'filterByWord',

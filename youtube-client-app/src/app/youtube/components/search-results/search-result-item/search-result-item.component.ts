@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MS_IN_HALF_YEAR, MS_IN_MONTH, MS_IN_WEEK } from 'src/app/shared/constants';
-import { ISearchResultItem } from './search-result-item';
+import { ISearchResultItem } from '../../../models/search-result-item';
 
 @Component({
   selector: 'app-search-result-item',

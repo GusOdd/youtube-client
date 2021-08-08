@@ -1,4 +1,4 @@
-import { ISearchResultItem } from './search-result-item/search-result-item';
+import { ISearchResultItem } from './search-result-item';
 
 export interface ISearchResults {
   etag: string;

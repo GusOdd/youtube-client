@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ISearchResults } from './search-results/search-results';
+import { ISearchResults } from './youtube/models/search-results';
 
 @Component({
   selector: 'app-root',
@@ -18,15 +18,6 @@ export class AppComponent {
   itemsData?: ISearchResults;
 
   inputData?: string;
-
-  constructor() {
-    const getDataFromFile = async () => {
-      const res = await fetch('../../assets/data.json');
-      this.itemsData = await res.json();
-    };
-
-    getDataFromFile();
-  }
 
   onClickHeaderHandler(event: Event) {
     const eventTarget = event.target as HTMLElement;
