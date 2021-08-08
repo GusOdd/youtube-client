@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component } from '@angular/core';
 import { ISearchResults } from '../../models/search-results';
 import { YoutubeService } from '../../services/youtube.service';
 
@@ -10,13 +10,11 @@ import { YoutubeService } from '../../services/youtube.service';
 export class SearchResultsComponent {
   itemsData?: ISearchResults;
 
-  @Input() inputData?: string;
-
-  constructor(private youtubeService: YoutubeService) {
+  constructor(public youtubeService: YoutubeService) {
     const getItemsData = async () => {
       await this.youtubeService.getDataFromFile();
       this.itemsData = this.youtubeService.itemsData;
-    }
+    };
 
     getItemsData();
   }

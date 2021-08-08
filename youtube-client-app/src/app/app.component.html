@@ -1,13 +1,10 @@
 <div class="wrapper">
-  <app-header (click)="onClickHeaderHandler($event)"></app-header>
+  <app-header></app-header>
   <app-filtering-section
-    (click)="onClickFilteringSectionHandler($event)"
-    (input)="onInputFilteringSectionHandler($event)"
-    *ngIf="isFilteringSectionDisplay"
+    *ngIf="filteringSectionService.isFilteringSectionDisplay"
   ></app-filtering-section>
   <app-search-results
-    [inputData]="inputData"
-    *ngIf="isSearchResultsDisplay; else noSearchResults"
+    *ngIf="youtubeService.isSearchResultsDisplay; else noSearchResults"
   ></app-search-results>
 </div>
 

@@ -10,13 +10,7 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [AppComponent],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    CoreModule,
-    YoutubeModule,
-  ],
+  imports: [BrowserModule, AppRoutingModule, BrowserAnimationsModule, CoreModule, YoutubeModule],
   providers: [],
   bootstrap: [AppComponent],
 })
