@@ -1,10 +1,4 @@
 <div class="wrapper">
   <app-header></app-header>
-  <router-outlet
-    *ngIf="youtubeService.isSearchResultsDisplay; else noSearchResults"
-  ></router-outlet>
+  <router-outlet></router-outlet>
 </div>
-
-<ng-template #noSearchResults>
-  <p>There are no search results.</p>
-</ng-template>
