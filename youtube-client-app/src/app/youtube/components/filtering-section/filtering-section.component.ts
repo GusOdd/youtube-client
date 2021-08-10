@@ -16,7 +16,7 @@ export class FilteringSectionComponent {
     const eventTarget = event.target as HTMLInputElement;
 
     if (eventTarget.classList.contains('input-by-word')) {
-      this.youtubeService.inputData = eventTarget.value.toLowerCase();
+      this.youtubeService.inputData = eventTarget.value.trim().toLowerCase();
     }
   }
 

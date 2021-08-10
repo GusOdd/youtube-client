@@ -18,10 +18,11 @@ export class HeaderComponent {
       !this.filteringSectionService.isFilteringSectionDisplay;
   }
 
-  onClickSearchInputHandler(event: Event) {
+  async onClickSearchInputHandler(event: Event) {
     const eventTarget = event.target as HTMLElement;
 
     if (eventTarget.closest('button')?.classList.contains('search-button')) {
+      await this.youtubeService.getDataFromFile();
       this.youtubeService.isSearchResultsDisplay = true;
     }
   }
