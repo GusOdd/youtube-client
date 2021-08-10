@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-
-import { FilteringSectionService } from './youtube/services/filtering-section.service';
 import { YoutubeService } from './youtube/services/youtube.service';
 
 @Component({
@@ -11,8 +9,5 @@ import { YoutubeService } from './youtube/services/youtube.service';
 export class AppComponent {
   title = 'Youtube Client App';
 
-  constructor(
-    public filteringSectionService: FilteringSectionService,
-    public youtubeService: YoutubeService,
-  ) {}
+  constructor(public youtubeService: YoutubeService) {}
 }

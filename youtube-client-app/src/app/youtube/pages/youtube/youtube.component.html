@@ -1,0 +1,8 @@
+<app-filtering-section
+  *ngIf="filteringSectionService.isFilteringSectionDisplay"
+></app-filtering-section>
+<app-search-results></app-search-results>
+
+<ng-template #noSearchResults>
+  <p>There are no search results.</p>
+</ng-template>

@@ -1,11 +1,8 @@
 <div class="wrapper">
   <app-header></app-header>
-  <app-filtering-section
-    *ngIf="filteringSectionService.isFilteringSectionDisplay"
-  ></app-filtering-section>
-  <app-search-results
+  <router-outlet
     *ngIf="youtubeService.isSearchResultsDisplay; else noSearchResults"
-  ></app-search-results>
+  ></router-outlet>
 </div>
 
 <ng-template #noSearchResults>
