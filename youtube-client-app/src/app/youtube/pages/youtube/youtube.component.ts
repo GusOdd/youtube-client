@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+
 import { FilteringSectionService } from '../../services/filtering-section.service';
+import { YoutubeService } from '../../services/youtube.service';
 
 @Component({
   selector: 'app-youtube',
@@ -7,5 +9,14 @@ import { FilteringSectionService } from '../../services/filtering-section.servic
   styleUrls: ['./youtube.component.scss'],
 })
 export class YoutubeComponent {
-  constructor(public filteringSectionService: FilteringSectionService) {}
+  constructor(
+    public filteringSectionService: FilteringSectionService,
+    private youtubeService: YoutubeService,
+  ) {
+    const displaySection = async () => {
+      await this.youtubeService.getDataFromFile();
+    };
+
+    displaySection();
+  }
 }

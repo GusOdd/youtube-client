@@ -8,8 +8,6 @@ import { ISearchResults } from '../models/search-results';
 export class YoutubeService {
   itemsData?: ISearchResults;
 
-  isSearchResultsDisplay = false;
-
   inputData?: string;
 
   async getDataFromFile() {

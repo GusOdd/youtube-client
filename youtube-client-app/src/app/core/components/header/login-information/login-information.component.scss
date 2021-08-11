@@ -3,8 +3,13 @@
   align-items: center;
 }
 
-.account-circle {
-  width: auto;
-  height: auto;
+.account-button {
+  width: 60px;
+  height: 60px;
+}
+
+.account-icon {
+  width: inherit;
+  height: inherit;
   font-size: 60px;
 }

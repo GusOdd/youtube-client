@@ -22,10 +22,7 @@ export class HeaderComponent {
     const eventTarget = event.target as HTMLElement;
 
     if (eventTarget.closest('button')?.classList.contains('search-button')) {
-      if (!this.youtubeService.isSearchResultsDisplay) {
-        await this.youtubeService.getDataFromFile();
-      }
-      this.youtubeService.isSearchResultsDisplay = true;
+      await this.youtubeService.getDataFromFile();
     }
   }
 }

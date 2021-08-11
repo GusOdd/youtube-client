@@ -5,6 +5,4 @@ import { Component } from '@angular/core';
   templateUrl: './filter-input.component.html',
   styleUrls: ['./filter-input.component.scss'],
 })
-export class FilterInputComponent {
-  value?: string;
-}
+export class FilterInputComponent {}
