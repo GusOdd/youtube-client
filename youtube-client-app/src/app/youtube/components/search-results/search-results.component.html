@@ -1,4 +1,4 @@
 <app-search-result-item
-  *ngFor="let item of youtubeService.itemsData!.items | filterByWord:youtubeService.inputData"
+  *ngFor="let item of items! | filterByWord:youtubeService.inputData"
   [item]="item"
 ></app-search-result-item>

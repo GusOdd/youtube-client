@@ -1,4 +1,8 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
+
+import { ISearchResultItem } from '../../models/search-result-item';
+import { ISearchResults } from '../../models/search-results';
 import { YoutubeService } from '../../services/youtube.service';
 
 @Component({
@@ -7,5 +11,15 @@ import { YoutubeService } from '../../services/youtube.service';
   styleUrls: ['./search-results.component.scss'],
 })
 export class SearchResultsComponent {
-  constructor(public youtubeService: YoutubeService) {}
+  data$: Observable<ISearchResults>;
+
+  items?: ISearchResultItem[];
+
+  constructor(public youtubeService: YoutubeService) {
+    this.data$ = this.youtubeService.getData();
+    this.data$.subscribe((data) => {
+      this.items = data.items;
+      this.youtubeService.cashedData = data;
+    });
+  }
 }

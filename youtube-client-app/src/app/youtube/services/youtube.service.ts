@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 import { ISearchResults } from '../models/search-results';
 
@@ -6,12 +7,13 @@ import { ISearchResults } from '../models/search-results';
   providedIn: 'root',
 })
 export class YoutubeService {
-  itemsData?: ISearchResults;
-
   inputData?: string;
 
-  async getDataFromFile() {
-    const res = await fetch('../../assets/data.json');
-    this.itemsData = await res.json();
+  cashedData?: ISearchResults;
+
+  constructor(private http: HttpClient) {}
+
+  getData() {
+    return this.http.get<ISearchResults>('../../assets/data.json');
   }
 }

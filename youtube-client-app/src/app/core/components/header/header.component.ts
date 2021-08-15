@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+
 import { FilteringSectionService } from 'src/app/youtube/services/filtering-section.service';
-import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 
 @Component({
   selector: 'app-header',
@@ -8,10 +9,7 @@ import { YoutubeService } from 'src/app/youtube/services/youtube.service';
   styleUrls: ['./header.component.scss'],
 })
 export class HeaderComponent {
-  constructor(
-    private filteringSectionService: FilteringSectionService,
-    private youtubeService: YoutubeService,
-  ) {}
+  constructor(private filteringSectionService: FilteringSectionService, private router: Router) {}
 
   onClickSettingsButtonHandler() {
     this.filteringSectionService.isFilteringSectionDisplay =
@@ -22,7 +20,7 @@ export class HeaderComponent {
     const eventTarget = event.target as HTMLElement;
 
     if (eventTarget.closest('button')?.classList.contains('search-button')) {
-      await this.youtubeService.getDataFromFile();
+      this.router.navigate(['/results']);
     }
   }
 }

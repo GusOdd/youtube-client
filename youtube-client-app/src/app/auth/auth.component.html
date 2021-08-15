@@ -3,12 +3,12 @@
     <form (click)="onSubmit($event)">
       <h2>Log In</h2>
       <mat-form-field class="full-width-input">
-        <input matInput placeholder="Email" formControlName="username" required>
+        <input matInput [(ngModel)]="valueEmail" name="email" type="email" placeholder="Email" required>
       </mat-form-field>
       <mat-form-field class="full-width-input">
-        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <input matInput [(ngModel)]="valuePassword" name="password" type="password" placeholder="Password" required>
       </mat-form-field>
-      <button mat-flat-button color="primary">Login</button>
+      <button mat-flat-button color="primary" class="login-button">Login</button>
     </form>
   </mat-card-content>
 </mat-card>

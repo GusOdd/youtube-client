@@ -3,12 +3,18 @@
   align-items: center;
 }
 
-.account-button {
+.account-button,
+.logout-button {
   width: 60px;
   height: 60px;
 }
 
-.account-icon {
+.account-button {
+  cursor: default;
+}
+
+.account-icon,
+.logout-icon {
   width: inherit;
   height: inherit;
   font-size: 60px;
