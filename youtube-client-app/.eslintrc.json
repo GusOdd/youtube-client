@@ -24,7 +24,7 @@
         "class-methods-use-this": [
           "error",
           {
-            "exceptMethods": ["transform"]
+            "exceptMethods": ["transform", "borderBottomColorPaint"]
           }
         ],
         "spaced-comment": [

@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { MS_IN_HALF_YEAR, MS_IN_MONTH, MS_IN_WEEK } from 'src/app/shared/constants';
+
+import { BorderBottomColorService } from 'src/app/youtube/services/border-bottom-color.service';
 import { ISearchResultItem } from '../../../models/search-result-item';
 
 @Component({
@@ -12,12 +13,11 @@ export class SearchResultItemComponent implements OnInit {
 
   borderColor?: string;
 
+  constructor(private borderBottomColorService: BorderBottomColorService) {}
+
   ngOnInit() {
-    const currentTimestamp = new Date();
-    const videoTimestamp = new Date(this.item!.snippet.publishedAt);
-    const difference = +currentTimestamp - +videoTimestamp;
-    if (difference < MS_IN_MONTH) this.borderColor = 'green';
-    if (difference < MS_IN_WEEK) this.borderColor = 'blue';
-    if (difference > MS_IN_HALF_YEAR) this.borderColor = 'red';
+    this.borderColor = this.borderBottomColorService.borderBottomColorPaint(
+      this.item!.snippet.publishedAt,
+    );
   }
 }

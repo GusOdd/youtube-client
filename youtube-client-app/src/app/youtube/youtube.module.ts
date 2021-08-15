@@ -20,6 +20,7 @@ import { ItemMoreButtonComponent } from './components/search-results/search-resu
 import { YoutubeComponent } from './pages/youtube/youtube.component';
 import { FilterByWordPipe } from './pipes/filter-by-word.pipe';
 import { YoutubeRoutingModule } from './youtube-routing.module';
+import { VideoDetailsComponent } from './components/video-details/video-details.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
     ItemMoreButtonComponent,
     FilterByWordPipe,
     YoutubeComponent,
+    VideoDetailsComponent,
   ],
   imports: [CommonModule, YoutubeRoutingModule, MatButtonModule, MatIconModule, MatCardModule],
   exports: [FilteringSectionComponent, SearchResultsComponent],
