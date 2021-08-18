@@ -1,6 +1,6 @@
-export interface ISearchResultItem {
+export interface IVideoItem {
   etag: string;
-  id: { kind: string; videoId: string; };
+  id: string;
   kind: string;
   snippet: {
     categoryId: string;

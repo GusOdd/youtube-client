@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { BorderBottomColorService } from 'src/app/youtube/services/border-bottom-color.service';
-import { ISearchResultItem } from '../../../models/search-result-item';
+import { IVideoItem } from '../../../models/video-item';
 
 @Component({
   selector: 'app-search-result-item',
@@ -9,7 +9,7 @@ import { ISearchResultItem } from '../../../models/search-result-item';
   styleUrls: ['./search-result-item.component.scss'],
 })
 export class SearchResultItemComponent implements OnInit {
-  @Input() item?: ISearchResultItem;
+  @Input() item?: IVideoItem;
 
   borderColor?: string;
 

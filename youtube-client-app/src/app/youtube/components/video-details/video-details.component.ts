@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
-import { ISearchResultItem } from '../../models/search-result-item';
+import { IVideoItem } from '../../models/video-item';
 import { BorderBottomColorService } from '../../services/border-bottom-color.service';
 import { YoutubeService } from '../../services/youtube.service';
 
@@ -11,7 +11,7 @@ import { YoutubeService } from '../../services/youtube.service';
   styleUrls: ['./video-details.component.scss'],
 })
 export class VideoDetailsComponent implements OnInit {
-  item?: ISearchResultItem;
+  item?: IVideoItem;
 
   photo?: string;
 
@@ -23,7 +23,7 @@ export class VideoDetailsComponent implements OnInit {
     private borderBottomColorService: BorderBottomColorService,
   ) {
     if (!this.youtubeService.cashedData) {
-      const data$ = this.youtubeService.getData();
+      const data$ = this.youtubeService.getData('angular');
 
       data$.subscribe((data) => {
         this.youtubeService.cashedData = data;
