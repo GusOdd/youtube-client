@@ -1,8 +1,4 @@
-<mat-card class="search-result-item" [ngClass]="{
-  green: borderColor === 'green',
-  blue: borderColor === 'blue',
-  red: borderColor === 'red'
-}">
+<mat-card class="search-result-item" [appBorderBottomColor]="item!.snippet.publishedAt">
   <app-item-video-thumbnail [thumbnailUrl]="item!.snippet.thumbnails.maxres.url"></app-item-video-thumbnail>
   <div class="statistics">
     <app-item-views-count [count]="item?.statistics?.viewCount"></app-item-views-count>
