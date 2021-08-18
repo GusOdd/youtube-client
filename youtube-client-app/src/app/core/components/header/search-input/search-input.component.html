@@ -1,8 +1,7 @@
 <mat-form-field class="search-form-field" appearance="fill">
   <mat-label>Search YouTube</mat-label>
-  <input matInput type="search" [(ngModel)]="value">
-  <button *ngIf="value" matSuffix mat-icon-button aria-label="Clear" (click)="value=''">
+  <input matInput type="search" [(ngModel)]="searchText" disabled>
+  <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="onClickClearButtonHandler()">
     <mat-icon>close</mat-icon>
   </button>
 </mat-form-field>
-<button mat-flat-button color="primary" type="submit" (click)="value=''" class="search-button" routerLink="/results">search</button>

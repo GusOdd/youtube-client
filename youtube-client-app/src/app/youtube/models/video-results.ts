@@ -1,11 +1,6 @@
+import { IResults } from './results';
 import { IVideoItem } from './video-item';
 
-export interface IVideoResults {
-  etag: string;
+export interface IVideoResults extends IResults {
   items: IVideoItem[];
-  kind: string;
-  pageInfo: {
-    resultsPerPage: number;
-    totalResults: number;
-  };
 }

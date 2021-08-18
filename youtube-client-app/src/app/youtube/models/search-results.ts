@@ -1,11 +1,6 @@
+import { IResults } from './results';
 import { ISearchResultItem } from './search-result-item';
 
-export interface ISearchResults {
-  etag: string;
+export interface ISearchResults extends IResults {
   items: ISearchResultItem[];
-  kind: string;
-  pageInfo: {
-    resultsPerPage: number;
-    totalResults: number;
-  };
 }

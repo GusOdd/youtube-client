@@ -8,7 +8,7 @@ import { YoutubeService } from '../../services/youtube.service';
   styleUrls: ['./filtering-section.component.scss'],
 })
 export class FilteringSectionComponent {
-  isSortingAscending = true;
+  isSortingAscending: boolean = true;
 
   multiplication: number;
 

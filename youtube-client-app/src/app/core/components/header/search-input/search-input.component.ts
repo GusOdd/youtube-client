@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./search-input.component.scss'],
 })
 export class SearchInputComponent {
-  value?: string;
+  searchText?: string;
+
+  onClickClearButtonHandler() {
+    this.searchText = '';
+  }
 }
