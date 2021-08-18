@@ -1,9 +1,5 @@
 <div class="thumbnail" [ngStyle]="{ 'background-image': photo }"></div>
-<div class="description" [ngClass]="{
-  green: borderColor === 'green',
-  blue: borderColor === 'blue',
-  red: borderColor === 'red'
-}">
+<div class="description" [appBorderBottomColor]="item!.snippet.publishedAt">
   <div class="title">{{ item!.snippet.title }}</div>
   <div class="date">{{ item!.snippet.publishedAt | date:'fullDate' }}</div>
   <div class="description__text">{{ item!.snippet.description }}</div>

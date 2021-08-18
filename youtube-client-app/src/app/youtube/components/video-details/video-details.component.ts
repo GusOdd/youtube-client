@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { IVideoItem } from '../../models/video-item';
-import { BorderBottomColorService } from '../../services/border-bottom-color.service';
 import { YoutubeService } from '../../services/youtube.service';
 
 @Component({
@@ -10,17 +9,14 @@ import { YoutubeService } from '../../services/youtube.service';
   templateUrl: './video-details.component.html',
   styleUrls: ['./video-details.component.scss'],
 })
-export class VideoDetailsComponent implements OnInit {
+export class VideoDetailsComponent {
   item?: IVideoItem;
 
   photo?: string;
 
-  borderColor?: string;
-
   constructor(
     private activatedRoute: ActivatedRoute,
     private youtubeService: YoutubeService,
-    private borderBottomColorService: BorderBottomColorService,
   ) {
     if (!this.youtubeService.cashedData) {
       const data$ = this.youtubeService.getData('angular');
@@ -41,11 +37,5 @@ export class VideoDetailsComponent implements OnInit {
     });
 
     this.photo = `url(${this.item?.snippet.thumbnails.maxres.url})`;
-  }
-
-  ngOnInit() {
-    this.borderColor = this.borderBottomColorService.borderBottomColorPaint(
-      this.item!.snippet.publishedAt,
-    );
   }
 }
