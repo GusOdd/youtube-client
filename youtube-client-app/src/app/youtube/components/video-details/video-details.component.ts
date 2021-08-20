@@ -14,10 +14,7 @@ export class VideoDetailsComponent {
 
   photo?: string;
 
-  constructor(
-    private activatedRoute: ActivatedRoute,
-    private youtubeService: YoutubeService,
-  ) {
+  constructor(private activatedRoute: ActivatedRoute, private youtubeService: YoutubeService) {
     if (!this.youtubeService.cashedData) {
       const data$ = this.youtubeService.getData('angular');
 

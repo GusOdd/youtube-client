@@ -3,7 +3,7 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 import { MS_IN_HALF_YEAR, MS_IN_MONTH, MS_IN_WEEK } from 'src/app/shared/constants';
 
 @Directive({
-  selector: '[appBorderBottomColor]'
+  selector: '[appBorderBottomColor]',
 })
 export class BorderBottomColorDirective implements OnInit {
   @Input() appBorderBottomColor?: string;
