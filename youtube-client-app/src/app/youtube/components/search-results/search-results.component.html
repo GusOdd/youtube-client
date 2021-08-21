@@ -1,4 +1,4 @@
-<div *ngIf="this.youtubeService.cashedData; else noresults">
+<div *ngIf="this.youtubeService.cashedData; else noresults" class="wrapper">
   <app-search-result-item
   *ngFor="let item of youtubeService.cashedData.items | filterByWord:youtubeService.inputData"
   [item]="item"
