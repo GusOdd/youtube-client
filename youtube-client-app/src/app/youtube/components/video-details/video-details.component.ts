@@ -15,24 +15,10 @@ export class VideoDetailsComponent {
   photo?: string;
 
   constructor(private activatedRoute: ActivatedRoute, private youtubeService: YoutubeService) {
-    if (!this.youtubeService.cashedData) {
-      const data$ = this.youtubeService.getData('angular');
-
-      data$.subscribe((data) => {
-        this.youtubeService.cashedData = data;
-
-        this.getItemData();
-      });
-    } else {
-      this.getItemData();
-    }
-  }
-
-  getItemData() {
     this.item = this.youtubeService.cashedData?.items.find((item) => {
       return item.id === this.activatedRoute.snapshot.params.id;
     });
 
-    this.photo = `url(${this.item?.snippet.thumbnails.standard.url})`;
+    this.photo = `url(${this.item?.snippet.thumbnails.high.url})`;
   }
 }

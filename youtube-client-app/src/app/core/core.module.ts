@@ -14,7 +14,6 @@ import { SearchInputComponent } from './components/header/search-input/search-in
 import { SettingsButtonComponent } from './components/header/settings-button/settings-button.component';
 import { LoginInformationComponent } from './components/header/login-information/login-information.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
-import { StartPageComponent } from './pages/start-page/start-page.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +23,6 @@ import { StartPageComponent } from './pages/start-page/start-page.component';
     SettingsButtonComponent,
     LoginInformationComponent,
     PageNotFoundComponent,
-    StartPageComponent,
   ],
   imports: [
     CommonModule,

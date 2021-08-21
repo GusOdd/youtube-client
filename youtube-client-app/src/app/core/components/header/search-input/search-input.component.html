@@ -1,6 +1,6 @@
 <mat-form-field class="search-form-field" appearance="fill">
   <mat-label>Search YouTube</mat-label>
-  <input matInput type="search" [(ngModel)]="searchText" [disabled]="!(authService.isAuth$ | async)!">
+  <input matInput #searchInput type="search" [(ngModel)]="searchText" [disabled]="!(authService.isAuth$ | async)!">
   <button *ngIf="searchText" matSuffix mat-icon-button aria-label="Clear" (click)="onClickClearButtonHandler()">
     <mat-icon>close</mat-icon>
   </button>

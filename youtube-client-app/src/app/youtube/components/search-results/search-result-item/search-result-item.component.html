@@ -1,5 +1,5 @@
 <mat-card class="search-result-item" [appBorderBottomColor]="item!.snippet.publishedAt">
-  <app-item-video-thumbnail [thumbnailUrl]="item!.snippet.thumbnails.standard.url"></app-item-video-thumbnail>
+  <app-item-video-thumbnail [thumbnailUrl]="item!.snippet.thumbnails.high.url"></app-item-video-thumbnail>
   <div class="statistics">
     <app-item-views-count [count]="item?.statistics?.viewCount"></app-item-views-count>
     <app-item-likes-count [count]="item?.statistics?.likeCount"></app-item-likes-count>
