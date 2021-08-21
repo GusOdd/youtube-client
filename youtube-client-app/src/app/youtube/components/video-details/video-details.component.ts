@@ -33,6 +33,6 @@ export class VideoDetailsComponent {
       return item.id === this.activatedRoute.snapshot.params.id;
     });
 
-    this.photo = `url(${this.item?.snippet.thumbnails.maxres.url})`;
+    this.photo = `url(${this.item?.snippet.thumbnails.standard.url})`;
   }
 }
