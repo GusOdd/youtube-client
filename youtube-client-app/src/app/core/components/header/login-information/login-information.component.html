@@ -1,7 +1,9 @@
-<span>Your Name</span>
-<button mat-icon-button color="primary" class="account-button">
-  <mat-icon class="account-icon">account_circle</mat-icon>
+<button *ngIf="!(authService.isAuth$ | async)!; else logout" mat-icon-button color="primary" class="login-button" routerLink="/auth">
+  <mat-icon class="login-icon">login</mat-icon>
 </button>
-<button mat-icon-button color="primary" class="logout-button" (click)="authService.logOut()">
-  <mat-icon class="logout-icon">logout</mat-icon>
-</button>
+
+<ng-template #logout>
+  <button mat-icon-button color="warn" class="logout-button" (click)="authService.logOut()">
+    <mat-icon class="logout-icon">logout</mat-icon>
+  </button>
+</ng-template>

@@ -3,17 +3,13 @@
   align-items: center;
 }
 
-.account-button,
+.login-button,
 .logout-button {
   width: 60px;
   height: 60px;
 }
 
-.account-button {
-  cursor: default;
-}
-
-.account-icon,
+.login-icon,
 .logout-icon {
   width: inherit;
   height: inherit;
