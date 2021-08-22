@@ -14,6 +14,8 @@ export class YoutubeService {
 
   cashedData?: IVideoResults;
 
+  searchText?: string;
+
   constructor(private http: HttpClient) {}
 
   getData(query: string) {

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { BehaviorSubject } from 'rxjs';
 import { FAKE_TOKEN_NAME } from 'src/app/shared/constants';
+import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { FAKE_TOKEN_NAME } from 'src/app/shared/constants';
 export class AuthService {
   isAuth$: BehaviorSubject<boolean>;
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private youtubeService: YoutubeService) {
     this.isAuth$ = new BehaviorSubject<boolean>(!!localStorage.getItem(FAKE_TOKEN_NAME));
   }
 
@@ -22,6 +23,8 @@ export class AuthService {
   logOut() {
     localStorage.removeItem(FAKE_TOKEN_NAME);
     this.router.navigate(['/auth']);
+    this.youtubeService.cashedData = undefined;
+    this.youtubeService.searchText = undefined;
     this.isAuth$.next(false);
   }
 }

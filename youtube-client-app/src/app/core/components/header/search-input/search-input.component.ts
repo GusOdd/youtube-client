@@ -11,14 +11,12 @@ import { YoutubeService } from 'src/app/youtube/services/youtube.service';
   styleUrls: ['./search-input.component.scss'],
 })
 export class SearchInputComponent implements AfterViewInit {
-  searchText?: string;
-
   @ViewChild('searchInput') inputElement?: ElementRef;
 
-  constructor(public authService: AuthService, private youtubeService: YoutubeService) {}
+  constructor(public authService: AuthService, public youtubeService: YoutubeService) {}
 
   onClickClearButtonHandler() {
-    this.searchText = '';
+    this.youtubeService.searchText = '';
   }
 
   ngAfterViewInit() {
