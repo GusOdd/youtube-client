@@ -1,5 +1,6 @@
-<div class="thumbnail" [ngStyle]="{ 'background-image': photo }"></div>
-<div class="description" [appBorderBottomColor]="item!.snippet.publishedAt">
+<div *ngIf="item; else nodata" class="wrapper">
+  <div class="thumbnail" [ngStyle]="{ 'background-image': photo }"></div>
+  <div class="description" [appBorderBottomColor]="item!.snippet.publishedAt">
   <div class="title">{{ item!.snippet.title }}</div>
   <div class="date">{{ item!.snippet.publishedAt | date:'fullDate' }}</div>
   <div class="description__text">{{ item!.snippet.description }}</div>
@@ -11,3 +12,8 @@
   </div>
   <button mat-flat-button color="primary" class="back-button" routerLink="/results">back to results</button>
 </div>
+</div>
+
+<ng-template #nodata>
+  <p>Loading data...</p>
+</ng-template>

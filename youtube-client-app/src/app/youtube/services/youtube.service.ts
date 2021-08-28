@@ -14,6 +14,8 @@ export class YoutubeService {
 
   cashedData?: IVideoResults;
 
+  cashedItem?: IVideoResults;
+
   searchText?: string;
 
   constructor(private http: HttpClient) {}
@@ -28,5 +30,10 @@ export class YoutubeService {
         return this.http.get<IVideoResults>(newUrl);
       }),
     );
+  }
+
+  getItem(id: string) {
+    const url = `/videos?&id=${id}&part=snippet,statistics`;
+    return this.http.get<IVideoResults>(url);
   }
 }

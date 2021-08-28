@@ -1,4 +1,4 @@
-:host {
+.wrapper {
   display: flex;
   margin: 0 auto;
   width: 1200px;
@@ -58,4 +58,9 @@
 .back-button {
   margin-top: 10px;
   text-transform: uppercase;
+}
+
+p {
+  font-size: 40px;
+  color: #383838;
 }
