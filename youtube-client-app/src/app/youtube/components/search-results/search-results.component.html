@@ -1,6 +1,6 @@
-<div *ngIf="youtubeService.cashedDataItems$; else noresults" class="wrapper">
+<div *ngIf="(youtubeService.cashedDataItems$ | async) as items; else noresults" class="wrapper">
   <app-search-result-item
-    *ngFor="let item of (youtubeService.cashedDataItems$ | async)! |
+    *ngFor="let item of items |
     filterByWord:youtubeService.inputData |
     sorting:youtubeService.isSortingAscending:youtubeService.typeOfSorting"
     [item]="item"
