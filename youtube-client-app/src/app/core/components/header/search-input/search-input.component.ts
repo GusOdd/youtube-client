@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { fromEvent } from 'rxjs';
-import { debounceTime, filter, map } from 'rxjs/operators';
+import { concatAll, debounceTime, filter, map } from 'rxjs/operators';
 
 import { AuthService } from 'src/app/auth/services/auth.service';
 import { YoutubeService } from 'src/app/youtube/services/youtube.service';
@@ -25,12 +25,11 @@ export class SearchInputComponent implements AfterViewInit {
         debounceTime(700),
         map((event) => (event?.target as HTMLInputElement).value),
         filter((value) => value.length > 3),
+        map((value) => this.youtubeService.getData(value)),
+        concatAll(),
       )
-      .subscribe((value) => {
-        const data$ = this.youtubeService.getData(value);
-        data$.subscribe((data) => {
-          this.youtubeService.cashedData = data;
-        });
+      .subscribe((data) => {
+        this.youtubeService.cashedData = data;
       });
   }
 }

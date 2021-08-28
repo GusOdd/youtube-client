@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 
 import { IVideoItem } from '../../models/video-item';
 import { YoutubeService } from '../../services/youtube.service';
@@ -21,8 +20,8 @@ export class VideoDetailsComponent {
     data$.subscribe((item) => {
       this.youtubeService.cashedItem = item;
 
-      this.item = this.youtubeService.cashedItem?.items.find((item) => {
-        return item.id === this.activatedRoute.snapshot.params.id;
+      this.item = this.youtubeService.cashedItem?.items.find((itemFromCash) => {
+        return itemFromCash.id === this.activatedRoute.snapshot.params.id;
       });
 
       this.photo = `url(${this.item?.snippet.thumbnails.high.url})`;
