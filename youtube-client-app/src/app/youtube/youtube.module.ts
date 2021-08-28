@@ -22,6 +22,7 @@ import { FilterByWordPipe } from './pipes/filter-by-word.pipe';
 import { YoutubeRoutingModule } from './youtube-routing.module';
 import { VideoDetailsComponent } from './components/video-details/video-details.component';
 import { BorderBottomColorDirective } from './directives/border-bottom-color.directive';
+import { SortingPipe } from './pipes/sorting.pipe';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BorderBottomColorDirective } from './directives/border-bottom-color.dir
     YoutubeComponent,
     VideoDetailsComponent,
     BorderBottomColorDirective,
+    SortingPipe,
   ],
   imports: [CommonModule, YoutubeRoutingModule, MatButtonModule, MatIconModule, MatCardModule],
   exports: [FilteringSectionComponent, SearchResultsComponent],

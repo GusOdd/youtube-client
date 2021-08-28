@@ -23,30 +23,4 @@ export class FilteringSectionComponent {
       this.youtubeService.inputData = eventTarget.value.trim().toLowerCase();
     }
   }
-
-  onClickFilteringSectionHandler(event: Event) {
-    const eventTarget = event.target as HTMLElement;
-
-    if (eventTarget.closest('button')?.classList.contains('sort-by-date-button')) {
-      this.multiplication = this.isSortingAscending ? 1 : -1;
-
-      this.youtubeService.cashedData!.items.sort(
-        (a, b) =>
-          this.multiplication *
-          (+new Date(a.snippet.publishedAt) - +new Date(b.snippet.publishedAt)),
-      );
-
-      this.isSortingAscending = !this.isSortingAscending;
-    }
-
-    if (eventTarget.closest('button')?.classList.contains('sort-by-count-button')) {
-      this.multiplication = this.isSortingAscending ? 1 : -1;
-
-      this.youtubeService.cashedData!.items.sort(
-        (a, b) => this.multiplication * (+a.statistics.viewCount - +b.statistics.viewCount),
-      );
-
-      this.isSortingAscending = !this.isSortingAscending;
-    }
-  }
 }

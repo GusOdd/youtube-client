@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 
-import { IVideoItem } from '../../models/video-item';
 import { YoutubeService } from '../../services/youtube.service';
 
 @Component({
@@ -10,21 +8,9 @@ import { YoutubeService } from '../../services/youtube.service';
   styleUrls: ['./video-details.component.scss'],
 })
 export class VideoDetailsComponent {
-  item?: IVideoItem;
+  constructor(public youtubeService: YoutubeService) {}
 
-  photo?: string;
-
-  constructor(private activatedRoute: ActivatedRoute, private youtubeService: YoutubeService) {
-    const data$ = this.youtubeService.getItem(this.activatedRoute.snapshot.params.id);
-
-    data$.subscribe((item) => {
-      this.youtubeService.cashedItem = item;
-
-      this.item = this.youtubeService.cashedItem?.items.find((itemFromCash) => {
-        return itemFromCash.id === this.activatedRoute.snapshot.params.id;
-      });
-
-      this.photo = `url(${this.item?.snippet.thumbnails.high.url})`;
-    });
+  onClickBackHandler() {
+    this.youtubeService.cashedItem$ = undefined;
   }
 }

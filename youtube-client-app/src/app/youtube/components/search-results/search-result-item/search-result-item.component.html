@@ -8,6 +8,6 @@
   </div>
   <app-item-video-title [title]="item?.snippet?.title"></app-item-video-title>
   <mat-card-actions>
-    <app-item-more-button [routerLink]="item?.id"></app-item-more-button>
+    <app-item-more-button [routerLink]="item?.id" (click)="onClickMoreHandler()"></app-item-more-button>
   </mat-card-actions>
 </mat-card>

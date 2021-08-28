@@ -23,7 +23,8 @@ export class AuthService {
   logOut() {
     localStorage.removeItem(FAKE_TOKEN_NAME);
     this.router.navigate(['/auth']);
-    this.youtubeService.cashedData = undefined;
+    this.youtubeService.cashedDataItems$ = undefined;
+    this.youtubeService.cashedItem$ = undefined;
     this.youtubeService.searchText = undefined;
     this.isAuth$.next(false);
   }

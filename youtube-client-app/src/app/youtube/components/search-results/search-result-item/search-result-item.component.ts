@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 
 import { IVideoItem } from '../../../models/video-item';
 
@@ -9,4 +10,10 @@ import { IVideoItem } from '../../../models/video-item';
 })
 export class SearchResultItemComponent {
   @Input() item?: IVideoItem;
+
+  constructor(private youtubeService: YoutubeService) {}
+
+  onClickMoreHandler() {
+    this.youtubeService.getItem(this.item?.id as string);
+  }
 }
