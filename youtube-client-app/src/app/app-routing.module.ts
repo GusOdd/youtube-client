@@ -14,6 +14,7 @@ const routes: Routes = [
   },
   { path: '404', component: PageNotFoundComponent },
   { path: 'auth', loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule) },
+  { path: 'admin', redirectTo: '/results/restricted-area/admin', pathMatch: 'full' },
   { path: '**', redirectTo: '/404', pathMatch: 'full' },
 ];
 

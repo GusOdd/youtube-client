@@ -23,6 +23,7 @@ import { YoutubeRoutingModule } from './youtube-routing.module';
 import { VideoDetailsComponent } from './components/video-details/video-details.component';
 import { BorderBottomColorDirective } from './directives/border-bottom-color.directive';
 import { SortingPipe } from './pipes/sorting.pipe';
+import { AdminComponent } from './components/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { SortingPipe } from './pipes/sorting.pipe';
     VideoDetailsComponent,
     BorderBottomColorDirective,
     SortingPipe,
+    AdminComponent,
   ],
   imports: [CommonModule, YoutubeRoutingModule, MatButtonModule, MatIconModule, MatCardModule],
   exports: [FilteringSectionComponent, SearchResultsComponent],
