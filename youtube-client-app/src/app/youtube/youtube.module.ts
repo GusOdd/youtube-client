@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule } from '@angular/material/icon';
-import { MatCardModule } from '@angular/material/card';
-
 import { FilteringSectionComponent } from './components/filtering-section/filtering-section.component';
 import { SortingButtonsComponent } from './components/filtering-section/sorting-buttons/sorting-buttons.component';
 import { FilterInputComponent } from './components/filtering-section/filter-input/filter-input.component';
@@ -24,6 +20,7 @@ import { VideoDetailsComponent } from './components/video-details/video-details.
 import { BorderBottomColorDirective } from './directives/border-bottom-color.directive';
 import { SortingPipe } from './pipes/sorting.pipe';
 import { AdminComponent } from './components/admin/admin.component';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -46,7 +43,7 @@ import { AdminComponent } from './components/admin/admin.component';
     SortingPipe,
     AdminComponent,
   ],
-  imports: [CommonModule, YoutubeRoutingModule, MatButtonModule, MatIconModule, MatCardModule],
+  imports: [CommonModule, SharedModule, YoutubeRoutingModule],
   exports: [FilteringSectionComponent, SearchResultsComponent],
 })
 export class YoutubeModule {}
