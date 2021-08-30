@@ -1,0 +1,12 @@
+<div *ngIf="(youtubeService.cashedDataItems$ | async) as items; else noresults" class="wrapper">
+  <app-search-result-item
+    *ngFor="let item of items |
+    filterByWord:youtubeService.inputData |
+    sorting:youtubeService.isSortingAscending:youtubeService.typeOfSorting"
+    [item]="item"
+  ></app-search-result-item>
+</div>
+
+<ng-template #noresults>
+  <p>There are no search results.</p>
+</ng-template>

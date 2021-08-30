@@ -1,0 +1,22 @@
+:host {
+  padding: 10px;
+}
+
+.search-result-item {
+  max-width: 300px;
+  border-bottom: gray solid 5px;
+  &.green {
+    border-bottom-color: green;
+  }
+  &.blue {
+    border-bottom-color: blue;
+  }
+  &.red {
+    border-bottom-color: red;
+  }
+}
+
+.statistics {
+  display: flex;
+  justify-content: space-between;
+}
