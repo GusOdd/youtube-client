@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Observable } from 'rxjs';
-import { map } from 'rxjs/operators';
+import { Observable, Subject } from 'rxjs';
+import { map, switchMap } from 'rxjs/operators';
 
 import { IVideoResults } from '../models/video-results';
 import { ISearchResults } from '../models/search-results';
@@ -24,25 +24,26 @@ export class YoutubeService {
 
   typeOfSorting?: 'date' | 'count';
 
+  searchTerms = new Subject<string>();
+
   constructor(private http: HttpClient) {}
 
-  getData(query: string) {
+  getData(query: string): Observable<IVideoItem[]> {
     this.typeOfSorting = undefined;
 
     const url = `/search?q=${query}&type=video&part=snippet&maxResults=15`;
-    this.http
+    return this.http
       .get<ISearchResults>(url)
       .pipe(
-        map((response: ISearchResults) => {
+        switchMap((response: ISearchResults) => {
           const listOfVideoId: string[] = [];
           response.items.forEach((element) => listOfVideoId.push(element.id.videoId));
           const newUrl = `/videos?&id=${[...listOfVideoId]}&part=snippet,statistics`;
-          this.cashedDataItems$ = this.http
+          return this.http
             .get<IVideoResults>(newUrl)
             .pipe(map((results) => results.items));
         }),
       )
-      .subscribe();
   }
 
   getItem(id: string) {
