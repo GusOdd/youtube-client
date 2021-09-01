@@ -1,0 +1,23 @@
+<div *ngIf="(youtubeService.cashedDataItems$ | async) as items">
+  <h2 class="header">Search Items:</h2>
+  <div class="wrapper">
+    <app-search-result-item
+      *ngFor="let item of items |
+      filterByWord:youtubeService.inputData |
+      sorting:youtubeService.isSortingAscending:youtubeService.typeOfSorting"
+      [item]="item"
+    ></app-search-result-item>
+  </div>
+</div>
+<div *ngIf="(youtubeService.customCards$ | async) as cards">
+  <h2
+    class="header">Custom Cards (<a
+      href="/admin"
+      (click)="$event.preventDefault()"
+      [routerLink]="['/admin']"
+      routerLinkActive="router-link-active"
+    >add new card</a>):</h2>
+  <div class="wrapper">
+    <app-custom-card *ngFor="let card of cards" [card]="card"></app-custom-card>
+  </div>
+</div>

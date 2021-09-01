@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-content>
+    <form (click)="onSubmit($event)">
+      <h2>Create new card</h2>
+      <mat-form-field class="full-width-input">
+        <input matInput [(ngModel)]="valueTitle" name="title" type="text" placeholder="Title" required>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput [(ngModel)]="valueDescription" name="description" type="text" placeholder="Description" required>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput [(ngModel)]="valueImage" name="image" type="text" placeholder="Link to image" required>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput [(ngModel)]="valueVideo" name="video" type="text" placeholder="Link to video" required>
+      </mat-form-field>
+      <button mat-flat-button color="primary" class="submit-button">Submit</button>
+    </form>
+  </mat-card-content>
+</mat-card>

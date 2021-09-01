@@ -1,0 +1,17 @@
+:host {
+  display: flex;
+  align-items: center;
+}
+
+.login-button,
+.logout-button {
+  width: 60px;
+  height: 60px;
+}
+
+.login-icon,
+.logout-icon {
+  width: inherit;
+  height: inherit;
+  font-size: 60px;
+}
