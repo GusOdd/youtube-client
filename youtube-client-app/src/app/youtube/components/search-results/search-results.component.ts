@@ -14,6 +14,7 @@ import { YoutubeService } from '../../services/youtube.service';
 export class SearchResultsComponent implements OnInit {
   constructor(public youtubeService: YoutubeService, private store: Store<IAppState>) {
     this.youtubeService.cashedDataItems$ = this.store.select((state) => state.videoItems);
+    this.youtubeService.customCards$ = this.store.select((state) => state.customCards);
   }
 
   ngOnInit() {

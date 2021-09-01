@@ -10,6 +10,7 @@ import { IVideoResults } from '../models/video-results';
 import { ISearchResults } from '../models/search-results';
 import { IVideoItem } from '../models/video-item';
 import { IAppState } from '../models/app-state';
+import { ICustomCard } from '../models/custom-card';
 
 @Injectable({
   providedIn: 'root',
@@ -18,6 +19,8 @@ export class YoutubeService {
   inputData?: string;
 
   cashedDataItems$?: Observable<IVideoItem[]>;
+
+  customCards$?: Observable<ICustomCard[]>;
 
   cashedItem$?: Observable<IVideoItem>;
 

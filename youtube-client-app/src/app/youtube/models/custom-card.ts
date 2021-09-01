@@ -3,5 +3,5 @@ export interface ICustomCard {
   description: string;
   image: string;
   video: string;
-  date: Date;
+  date: string;
 }

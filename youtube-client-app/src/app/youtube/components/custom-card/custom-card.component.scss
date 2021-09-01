@@ -1,0 +1,24 @@
+:host {
+  padding: 10px;
+}
+
+.custom-card {
+  max-width: 300px;
+  border-bottom: gray solid 5px;
+  &.green {
+    border-bottom-color: green;
+  }
+  &.blue {
+    border-bottom-color: blue;
+  }
+  &.red {
+    border-bottom-color: red;
+  }
+}
+
+.title {
+  text-align: center;
+  line-height: 28px;
+  margin-top: 8px;
+  height: 80px;
+}

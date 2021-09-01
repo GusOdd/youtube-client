@@ -1,0 +1,4 @@
+<mat-card class="custom-card" [appBorderBottomColor]="card?.date">
+  <img mat-card-image [src]="card?.image" alt="Video Thumbnail">
+  <mat-card-title class="title">{{ card?.title | slice:0:58 }}...</mat-card-title>
+</mat-card>

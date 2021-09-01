@@ -21,6 +21,7 @@ import { BorderBottomColorDirective } from './directives/border-bottom-color.dir
 import { SortingPipe } from './pipes/sorting.pipe';
 import { AdminComponent } from './components/admin/admin.component';
 import { SharedModule } from '../shared/shared.module';
+import { CustomCardComponent } from './components/custom-card/custom-card.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { SharedModule } from '../shared/shared.module';
     BorderBottomColorDirective,
     SortingPipe,
     AdminComponent,
+    CustomCardComponent,
   ],
   imports: [CommonModule, SharedModule, YoutubeRoutingModule],
   exports: [FilteringSectionComponent, SearchResultsComponent],

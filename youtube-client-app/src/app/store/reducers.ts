@@ -15,8 +15,7 @@ export const videoItemsReducer = createReducer(
 
 export const customCardsReducer = createReducer(
   initialState.customCards,
-  on(AppActions.createCustomCard, (state) => {
-    console.log('createCustomCard');
-    return { ...state };
+  on(AppActions.createCustomCard, (state, { customCard }) => {
+    return [...state, customCard];
   }),
 );

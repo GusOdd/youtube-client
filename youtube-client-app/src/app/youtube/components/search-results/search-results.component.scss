@@ -1,5 +1,6 @@
 :host {
   display: flex;
+  flex-direction: column;
   justify-content: center;
 }
 
@@ -9,7 +10,8 @@
   justify-content: space-between;
 }
 
-p {
-  font-size: 40px;
+.header {
+  font-size: 30px;
+  text-align: center;
   color: #383838;
 }
