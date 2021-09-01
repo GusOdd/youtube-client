@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { debounceTime, distinctUntilChanged, filter, tap } from 'rxjs/operators';
+import { loadSearchResults } from 'src/app/store/actions';
+import { IAppState } from '../../models/app-state';
 
 import { YoutubeService } from '../../services/youtube.service';
 
@@ -7,6 +11,21 @@ import { YoutubeService } from '../../services/youtube.service';
   templateUrl: './search-results.component.html',
   styleUrls: ['./search-results.component.scss'],
 })
-export class SearchResultsComponent {
-  constructor(public youtubeService: YoutubeService) {}
+export class SearchResultsComponent implements OnInit {
+  constructor(public youtubeService: YoutubeService, private store: Store<IAppState>) {
+    this.youtubeService.cashedDataItems$ = this.store.select((state) => state.videoItems);
+  }
+
+  ngOnInit() {
+    this.youtubeService.searchTerms
+      .pipe(
+        debounceTime(500),
+        distinctUntilChanged(),
+        filter((value) => value.length > 3),
+        tap((term: string) => {
+          this.store.dispatch(loadSearchResults({ term }));
+        }),
+      )
+      .subscribe();
+  }
 }

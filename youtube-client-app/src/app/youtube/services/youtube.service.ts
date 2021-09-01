@@ -4,9 +4,12 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
+import { Store } from '@ngrx/store';
+
 import { IVideoResults } from '../models/video-results';
 import { ISearchResults } from '../models/search-results';
 import { IVideoItem } from '../models/video-item';
+import { IAppState } from '../models/app-state';
 
 @Injectable({
   providedIn: 'root',
@@ -26,24 +29,20 @@ export class YoutubeService {
 
   searchTerms = new Subject<string>();
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private store: Store<IAppState>) {}
 
   getData(query: string): Observable<IVideoItem[]> {
     this.typeOfSorting = undefined;
 
     const url = `/search?q=${query}&type=video&part=snippet&maxResults=15`;
-    return this.http
-      .get<ISearchResults>(url)
-      .pipe(
-        switchMap((response: ISearchResults) => {
-          const listOfVideoId: string[] = [];
-          response.items.forEach((element) => listOfVideoId.push(element.id.videoId));
-          const newUrl = `/videos?&id=${[...listOfVideoId]}&part=snippet,statistics`;
-          return this.http
-            .get<IVideoResults>(newUrl)
-            .pipe(map((results) => results.items));
-        }),
-      )
+    return this.http.get<ISearchResults>(url).pipe(
+      switchMap((response: ISearchResults) => {
+        const listOfVideoId: string[] = [];
+        response.items.forEach((element) => listOfVideoId.push(element.id.videoId));
+        const newUrl = `/videos?&id=${[...listOfVideoId]}&part=snippet,statistics`;
+        return this.http.get<IVideoResults>(newUrl).pipe(map((results) => results.items));
+      }),
+    );
   }
 
   getItem(id: string) {

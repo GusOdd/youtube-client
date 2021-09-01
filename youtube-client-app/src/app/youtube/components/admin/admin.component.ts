@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { IAppState } from '../../models/app-state';
 
 @Component({
   selector: 'app-admin',
@@ -13,6 +15,10 @@ export class AdminComponent {
   valueImage?: string;
 
   valueVideo?: string;
+
+  constructor(private store: Store<IAppState>) {
+    console.log(this.store);
+  }
 
   onSubmit(event: Event) {
     const eventTarget = event.target as HTMLElement;

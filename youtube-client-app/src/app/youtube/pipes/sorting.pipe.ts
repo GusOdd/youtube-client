@@ -6,11 +6,13 @@ import { IVideoItem } from '../models/video-item';
 })
 export class SortingPipe implements PipeTransform {
   transform(
-    items: IVideoItem[],
+    readOnlyItems: IVideoItem[],
     isSortingAscending: boolean,
     typeOfSorting: 'date' | 'count' | undefined,
   ): IVideoItem[] {
     const multiplication = isSortingAscending ? 1 : -1;
+
+    const items = [...readOnlyItems];
 
     if (typeOfSorting === 'date') {
       return items.sort(
@@ -25,6 +27,6 @@ export class SortingPipe implements PipeTransform {
       );
     }
 
-    return items;
+    return readOnlyItems;
   }
 }
